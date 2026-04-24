@@ -1,6 +1,11 @@
 ---
-import { redirect } from "astro:server";
-
-// Redirect to home page
-return redirect("/", 301);
 ---
+<html>
+<head>
+  <meta http-equiv="refresh" content="0;url=/" />
+  <link rel="canonical" href="/" />
+</head>
+<body>
+  <p>Redirecting to <a href="/">homepage</a>...</p>
+</body>
+</html>
