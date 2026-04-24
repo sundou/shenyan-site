@@ -5,7 +5,7 @@ export const SITE_TITLE = "沈燕";
 export const AUTHOR_NAME = "沈燕";
 export const AUTHOR_INITIAL = "SY";
 export const SITE_DESCRIPTION = "宁波独立室内设计师 · 十年经验 · 做有温度的家居空间";
-export const GENERATE_SLUG_FROM_TITLE = true;
+export const GENERATE_SLUG_FROM_TITLE = false;
 export const TRANSITION_API = true;
 
 // Base path helper for GitHub Pages project sites
