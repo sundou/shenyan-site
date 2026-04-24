@@ -1,0 +1,35 @@
+---
+import SideBarFooter from "./SideBarFooter.astro";
+import SideBarMenu from "./SideBarMenu.astro";
+import { url } from "../config";
+const { sideBarActiveItemID } = Astro.props;
+---
+
+<div class="drawer-side z-40">
+    <label for="my-drawer" class="drawer-overlay"></label>
+    <aside
+        class="px-2 pt-2 h-auto min-h-full w-[19rem] bg-ac-cream-dark text-ac-text flex flex-col"
+    >
+        <div class="w-fit mx-auto mt-5 mb-3">
+            <a href={url('')}>
+                <div
+                    class="avatar transition ease-in-out hover:scale-[102%] block m-auto"
+                >
+                    <div class="w-[8.5rem] rounded-full overflow-hidden">
+                        <img
+                            class="mask mask-circle object-cover w-full h-full"
+                            src="https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31oqq15uaho0g4a620dipm5jqb2fkqkg?imageView2/2/w/540/format/webp"
+                            alt="沈燕 - 宁波独立室内设计师"
+                            width="136"
+                            height="136"
+                        />
+                    </div>
+                </div>
+            </a>
+            <div class="text-center mt-2 text-sm font-semibold text-ac-primary-dark">沈燕</div>
+            <div class="text-center text-xs text-ac-text/60">宁波独立设计师</div>
+        </div>
+        <SideBarMenu sideBarActiveItemID={sideBarActiveItemID} />
+        <SideBarFooter />
+    </aside>
+</div>

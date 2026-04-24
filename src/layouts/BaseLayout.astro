@@ -1,0 +1,108 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import SideBar from "../components/SideBar.astro";
+import { ViewTransitions } from "astro:transitions";
+
+import { SITE_TITLE, SITE_DESCRIPTION, TRANSITION_API, url, BASE_PATH } from "../config";
+
+const {
+    image,
+    title = SITE_TITLE,
+    description = SITE_DESCRIPTION,
+    includeSidebar = true,
+    sideBarActiveItemID,
+    ogType,
+} = Astro.props;
+const noSidebar = includeSidebar === false;
+---
+
+<!doctype html>
+<html lang="en" data-base={BASE_PATH}>
+    <head>
+        <BaseHead
+            title={title}
+            description={description}
+            image={image}
+            ,
+            ogType={ogType}
+        />
+        {TRANSITION_API && <ViewTransitions />}
+        <Fragment set:html={`<style is:inline>:root{--divider-img:url("${url('divider_line.png')}")}</style>`} />
+        <link rel="stylesheet" href={url('cursor.css')} />
+        <script is:inline>
+            (function(){
+                var t = localStorage.getItem('theme');
+                if (!t) t = 'night'; // 默认暗色模式
+                document.documentElement.setAttribute('data-theme', t);
+            })();
+        </script>
+    </head>
+    <body class="animal-cursor">
+        <div class="bg-ac-cream">
+            {
+                !noSidebar && (
+                    <div class="drawer lg:drawer-open">
+                        <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+                        <div class="drawer-content bg-base-100 rounded-tl-ac-xl relative min-h-screen flex flex-col">
+                            <div class="w-full overflow-hidden pointer-events-none select-none">
+                                <img src={url('header_banner_light.png')} data-light-src={url('header_banner_light.png')} data-dark-src={url('header_banner_dark.png')} alt="" class="w-full theme-banner" />
+                            </div>
+                            <Header title={SITE_TITLE} />
+                            <div class="md:flex md:justify-center flex-1">
+                                <main class="p-6 pt-10 lg:max-w-[900px] max-w-[100vw]">
+                                    <slot />
+                                </main>
+                            </div>
+                            <Footer />
+                            <div class="w-full overflow-hidden pointer-events-none select-none flex justify-end mt-auto">
+                                <img src={url('banner_light.png')} data-light-src={url('banner_light.png')} data-dark-src={url('banner_dark.png')} alt="" class="w-full theme-banner" />
+                            </div>
+                        </div>
+                        <SideBar sideBarActiveItemID={sideBarActiveItemID} />
+                    </div>
+                )
+            }
+            {
+                noSidebar && (
+                    <div class="bg-base-100 min-h-screen flex flex-col">
+                        <Header title={SITE_TITLE} />
+                        <div class="flex-1">
+                            <slot />
+                        </div>
+                        <Footer />
+                    </div>
+                )
+            }
+        </div>
+        <script is:inline>
+            var __BASE__ = document.documentElement.getAttribute('data-base') || '/';
+            function applyTheme(theme) {
+                document.documentElement.setAttribute('data-theme', theme);
+                localStorage.setItem('theme', theme);
+                document.querySelectorAll('.theme-banner').forEach(function(el) {
+                    el.src = theme === 'night' ? el.getAttribute('data-dark-src') : el.getAttribute('data-light-src') || el.src.replace('_dark', '_light');
+                });
+                var icon = document.getElementById('theme-icon');
+                var label = document.getElementById('theme-label');
+                if (icon) icon.src = theme === 'night' ? __BASE__ + 'leaf_light.png' : __BASE__ + 'leaf_dark.png';
+                if (label) label.textContent = theme === 'night' ? '浅色模式' : '深色模式';
+            }
+            window.toggleTheme = function() {
+                var current = document.documentElement.getAttribute('data-theme') || 'night';
+                applyTheme(current === 'night' ? 'nord' : 'night');
+            };
+            // init on load
+            (function(){
+                var t = localStorage.getItem('theme') || document.documentElement.getAttribute('data-theme') || 'night';
+                applyTheme(t);
+            })();
+            // re-apply after Astro View Transitions page swap
+            document.addEventListener('astro:after-swap', function() {
+                var t = localStorage.getItem('theme') || 'night';
+                applyTheme(t);
+            });
+        </script>
+    </body>
+</html>

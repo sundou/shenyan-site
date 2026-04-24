@@ -1,0 +1,55 @@
+---
+import { url } from "../config";
+---
+
+<div
+    class="block sticky pointer-events-none bottom-10 bg-ac-cream-dark justify-center h-12 [mask-image:linear-gradient(transparent,#000000)]"
+>
+</div>
+
+<div
+    class="social-icons px-4 pb-5 pt-1 flex flex-col items-start sticky bottom-0 bg-ac-cream-dark gap-1"
+>
+    <!-- 小红书 -->
+    <a
+        href="https://www.xiaohongshu.com/user/profile/5b19e59be8ac2b261e2f167a"
+        target="_blank"
+        rel="noopener"
+        class="flex items-center gap-2 px-3 py-1.5 rounded-ac-md transition-colors hover:bg-ac-sand text-sm"
+        aria-label="小红书"
+        title="小红书 @沈燕"
+    >
+        <span class="w-5 h-5 flex items-center justify-center text-base leading-none">📕</span>
+        <span>小红书</span>
+    </a>
+
+    <!-- 浙江 · 宁波 -->
+    <a
+        href={url('cv')}
+        class="flex items-center gap-2 px-3 py-1.5 rounded-ac-md transition-colors hover:bg-ac-sand text-sm"
+        aria-label="联系方式"
+        title="预约设计咨询"
+    >
+        <img src={url('messages.png')} alt="" class="w-5 h-5 rounded-ac-sm" />
+        <span>预约咨询</span>
+    </a>
+
+    <!-- 地理位置 -->
+    <div class="flex items-center gap-2 px-3 py-1.5 text-sm text-ac-text/50">
+        <span class="w-5 h-5 flex items-center justify-center text-sm">📍</span>
+        <span>宁波 · 江浙沪</span>
+    </div>
+
+    <div class="divider my-1"></div>
+
+    <!-- Theme toggle - 移到最底部 -->
+    <button
+        onclick="toggleTheme()"
+        class="flex items-center gap-2 px-3 py-1.5 w-full rounded-ac-md transition-colors hover:bg-ac-sand text-sm text-left"
+        aria-label="切换主题"
+        title="切换明暗主题"
+    >
+        <img id="theme-icon" src={url('leaf_light.png')} alt="" class="w-5 h-5 rounded-ac-sm" />
+        <span id="theme-label">浅色模式</span>
+    </button>
+</div>

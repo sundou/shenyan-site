@@ -1,0 +1,131 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TimeLineElement from "../components/cv/TimeLine.astro";
+import { AUTHOR_INITIAL } from "src/config";
+---
+
+<BaseLayout title={AUTHOR_INITIAL + " | 设计服务"} sideBarActiveItemID="cv">
+    <div class="mb-5">
+        <div class="text-3xl w-full font-bold">设计服务</div>
+    </div>
+
+    <div class="mb-8 text-base leading-relaxed">
+        提供从概念方案到现场落地的全周期室内设计服务，覆盖宁波 · 江浙沪甬地区。<br />
+        每个项目均为一对一深度服务，不套模板，按照你的生活方式量身定制。
+    </div>
+
+    <!-- 服务项目 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+        <div class="bg-ac-cream rounded-ac-md p-5">
+            <div class="text-xl font-bold mb-2">🏠 全屋整体设计</div>
+            <p class="text-sm leading-relaxed mb-3">从户型分析、功能规划到风格定位、材料选配，全流程深度服务。适合新房装修、全屋翻新。</p>
+            <ul class="text-xs space-y-1 text-ac-text/70 list-disc ml-4">
+                <li>空间平面规划方案</li>
+                <li>3D效果图 + 施工图</li>
+                <li>材料 / 家具选配建议</li>
+                <li>施工全程现场跟踪</li>
+            </ul>
+        </div>
+        <div class="bg-ac-cream rounded-ac-md p-5">
+            <div class="text-xl font-bold mb-2">🍳 专项空间设计</div>
+            <p class="text-sm leading-relaxed mb-3">厨房、卫生间、客厅等单一空间深度优化，人性化设计 + 精细工艺把控。</p>
+            <ul class="text-xs space-y-1 text-ac-text/70 list-disc ml-4">
+                <li>厨房动线与收纳优化</li>
+                <li>卫生间干湿分离设计</li>
+                <li>客厅空间美学规划</li>
+                <li>小户型极限利用方案</li>
+            </ul>
+        </div>
+        <div class="bg-ac-cream rounded-ac-md p-5">
+            <div class="text-xl font-bold mb-2">🏢 商业 / 办公空间</div>
+            <p class="text-sm leading-relaxed mb-3">茶室、工作室、小型办公空间设计。兼顾美感与功能效率，打造有调性的商务环境。</p>
+            <ul class="text-xs space-y-1 text-ac-text/70 list-disc ml-4">
+                <li>品牌调性空间策划</li>
+                <li>商业动线与陈列设计</li>
+                <li>茶室 / 展厅氛围营造</li>
+                <li>软装搭配与落地</li>
+            </ul>
+        </div>
+        <div class="bg-ac-cream rounded-ac-md p-5">
+            <div class="text-xl font-bold mb-2">💬 设计咨询顾问</div>
+            <p class="text-sm leading-relaxed mb-3">装修前期答疑、方案审核、现场陪同看样，帮你少走弯路。适合已有设计师但需要第二意见的业主。</p>
+            <ul class="text-xs space-y-1 text-ac-text/70 list-disc ml-4">
+                <li>方案合理性审核</li>
+                <li>材料 / 工艺建议</li>
+                <li>装修避坑指导</li>
+                <li>预算优化建议</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 服务流程 -->
+    <div class="mb-5">
+        <div class="text-3xl w-full font-bold">服务流程</div>
+    </div>
+
+    <div class="time-line-container grid gap-4 mb-10">
+        <TimeLineElement
+            title="① 初次沟通"
+            subtitle="免费 · 约 30-60 分钟"
+        >
+            了解你的空间现状、生活方式、审美偏好与预算区间。这不是销售，是真正的聆听与共情。
+        </TimeLineElement>
+        <TimeLineElement
+            title="② 概念方案"
+            subtitle="平面规划 + 风格定位"
+        >
+            根据沟通结果，提出空间平面规划方案和风格参考方向。确认方向后进入深化阶段。
+        </TimeLineElement>
+        <TimeLineElement
+            title="③ 深化设计"
+            subtitle="效果图 + 施工图 + 选材清单"
+        >
+            全套3D效果图呈现最终效果，配套施工图与材料清单。保证效果图与落地高度还原。
+        </TimeLineElement>
+        <TimeLineElement
+            title="④ 施工陪跑"
+            subtitle="现场跟踪 + 质量把控"
+        >
+            关键节点现场跟踪，及时处理施工问题，确保每一个工艺细节符合设计意图。
+        </TimeLineElement>
+        <TimeLineElement
+            title="⑤ 软装收尾"
+            subtitle="家具 / 饰品选配 + 最终验收"
+        >
+            协助家具、灯具、软装饰品的选配与摆场，完成最终效果验收，交付满意的家。
+        </TimeLineElement>
+    </div>
+
+    <!-- 服务范围 -->
+    <div class="mb-5">
+        <div class="text-3xl w-full font-bold">服务覆盖城市</div>
+    </div>
+
+    <ul class="list-disc mx-6 mb-10 grid gap-2 md:columns-3 columns-2">
+        <li>宁波（重点城市）</li>
+        <li>杭州</li>
+        <li>上海</li>
+        <li>绍兴</li>
+        <li>嘉兴</li>
+        <li>温州</li>
+        <li>舟山</li>
+        <li>台州</li>
+        <li>其他江浙沪城市可协商</li>
+    </ul>
+
+    <!-- 联系方式 -->
+    <div class="mb-5">
+        <div class="text-3xl w-full font-bold">预约咨询</div>
+    </div>
+
+    <div class="bg-ac-cream rounded-ac-md p-6 mb-8">
+        <p class="text-base mb-4">如果你正在考虑装修，或者对自己的空间还有疑惑，欢迎直接找我聊聊。</p>
+        <p class="text-sm text-ac-text/70 mb-4">初次沟通完全免费，没有套路，只有真诚。</p>
+        <div class="flex flex-wrap gap-3">
+            <a href="https://www.xiaohongshu.com/user/profile/5b19e59be8ac2b261e2f167a" target="_blank" rel="noopener"
+               class="btn bg-[#ff2442] text-white border-0 hover:opacity-90 rounded-ac-md btn-sm">
+                📕 小红书私信
+            </a>
+        </div>
+    </div>
+</BaseLayout>

@@ -1,0 +1,138 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TimeLineElement from "../components/cv/TimeLine.astro";
+import { AUTHOR_INITIAL, url } from "src/config";
+---
+
+<BaseLayout
+    title={AUTHOR_INITIAL + " | 关于我"}
+    sideBarActiveItemID="personal"
+>
+    <div class="w-[9rem] mt-5 mb-6">
+        <img
+            class="rounded-ac-md shadow-md"
+            src="https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31oqq15uaho0g4a620dipm5jqb2fkqkg?imageView2/2/w/540/format/webp"
+            alt="沈燕头像"
+            width="144"
+            height="144"
+            style="object-fit:cover; border-radius: 1rem;"
+        />
+    </div>
+
+    <div class="mb-5">
+        <div class="text-3xl w-full font-bold">关于我</div>
+    </div>
+
+    <div class="mb-8 text-base leading-relaxed space-y-3">
+        <p>
+            你好，我是<strong>沈燕</strong>，一名坐落在宁波的独立室内设计师。
+            深耕设计行业十年，专注于现代简约风格，服务范围覆盖江浙沪甬地区。
+        </p>
+        <p>
+            我是一个 <strong>INFJ</strong> ——懂你情绪，重视沟通，不套路。
+            在我看来，设计不是展示作品，而是读懂你的生活方式，再把它变成真实可落地的空间。
+        </p>
+        <p>
+            客户朋友们常说我：<em>「耐心温柔，自带闭环」</em>——
+            从第一次聊天到最终落地，我会全程陪跑，让每一个细节都真正属于你。
+        </p>
+        <p>
+            不计较、不内耗、不将就、不套路。<br />
+            这是我对自己的要求，也是我给你的承诺。
+        </p>
+    </div>
+
+    <!-- 设计理念 -->
+    <div class="mb-5">
+        <div class="text-3xl w-full font-bold">设计理念</div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+        <div class="bg-ac-cream rounded-ac-md p-5">
+            <div class="text-lg font-bold mb-2">🌿 空间是生活的容器</div>
+            <p class="text-sm leading-relaxed">家不该是展示品，而应是生活的容器——装载晨起的阳光、晚餐的笑语、休息时的松弛，和每一段共同走过的时光。</p>
+        </div>
+        <div class="bg-ac-cream rounded-ac-md p-5">
+            <div class="text-lg font-bold mb-2">✨ 极简藏在细节里</div>
+            <p class="text-sm leading-relaxed">真正高级的极简，功夫全藏在那些几乎看不见的细节里——无边框风口、齐平门套、隐藏灯带……这些构成空间的「隐形骨架」。</p>
+        </div>
+        <div class="bg-ac-cream rounded-ac-md p-5">
+            <div class="text-lg font-bold mb-2">💬 设计从感受出发</div>
+            <p class="text-sm leading-relaxed">让空间贴合你的生活，而非让你适应空间。为一扇窗调整布局，为一份习惯预留角落，为你的情绪安放一处归宿。</p>
+        </div>
+        <div class="bg-ac-cream rounded-ac-md p-5">
+            <div class="text-lg font-bold mb-2">🤝 朋友型陪跑</div>
+            <p class="text-sm leading-relaxed">我不只是你的设计师，更是项目全程的朋友型陪跑者。从方案沟通到现场落地，每个阶段都在你身边。</p>
+        </div>
+    </div>
+
+    <!-- 从业经历 -->
+    <div class="mb-5">
+        <div class="text-3xl w-full font-bold">从业经历</div>
+    </div>
+
+    <div class="time-line-container mb-10">
+        <TimeLineElement
+            title="独立室内设计师"
+            subtitle="2015 至今 · 宁波 · 江浙沪"
+        >
+            专注现代简约风格的全屋空间设计，服务住宅、办公、商业等多种业态。代表项目涵盖叠墅、茶室、小户型改造等。坚持一对一深度服务，从需求挖掘到落地验收，全程亲自跟进。
+        </TimeLineElement>
+        <TimeLineElement
+            title="室内设计师"
+            subtitle="2016 - 2020 · 设计公司 · 宁波"
+        >
+            参与多个大型住宅项目的方案设计与施工图深化，积累了扎实的工艺细节与材料应用经验，形成了对极简主义风格的深度理解与独到审美。
+        </TimeLineElement>
+    </div>
+
+    <!-- 擅长领域 -->
+    <div class="mb-5">
+        <div class="text-3xl w-full font-bold">擅长领域</div>
+    </div>
+
+    <ul class="list-disc md:columns-3 columns-2 mx-6 mb-10 gap-2">
+        <li>现代简约风格</li>
+        <li>极简主义设计</li>
+        <li>全屋空间规划</li>
+        <li>厨房人性化设计</li>
+        <li>工艺细节把控</li>
+        <li>小户型改造</li>
+        <li>商业办公空间</li>
+        <li>茶室禅意空间</li>
+        <li>叠墅别墅设计</li>
+        <li>旧房改造翻新</li>
+        <li>效果图落地还原</li>
+        <li>施工全程陪跑</li>
+    </ul>
+
+    <!-- 客户好评 -->
+    <div class="mb-5">
+        <div class="text-3xl w-full font-bold">客户的话</div>
+    </div>
+
+    <div class="grid grid-cols-1 gap-4 mb-10">
+        <div class="bg-ac-cream rounded-ac-md p-5 border-l-4 border-ac-primary">
+            <p class="text-sm italic leading-relaxed">「耐心温柔，自带闭环。从第一次见面到交房，她全程跟进，每一个问题都及时回应，让我省心又放心。」</p>
+            <p class="text-xs mt-3 text-ac-text/60">— 宁波业主 · 叠墅案例</p>
+        </div>
+        <div class="bg-ac-cream rounded-ac-md p-5 border-l-4 border-ac-primary">
+            <p class="text-sm italic leading-relaxed">「真的是朋友型设计师，懂我想要的感觉，改出来的方案比我想象的还要好。」</p>
+            <p class="text-xs mt-3 text-ac-text/60">— 宁波业主 · 90㎡住宅</p>
+        </div>
+        <div class="bg-ac-cream rounded-ac-md p-5 border-l-4 border-ac-primary">
+            <p class="text-sm italic leading-relaxed">「设计师的好评反馈是最治愈的勋章，感谢每一位信任我的客户。」</p>
+            <p class="text-xs mt-3 text-ac-text/60">— 沈燕</p>
+        </div>
+    </div>
+
+    <div class="flex gap-4">
+        <a href="https://www.xiaohongshu.com/user/profile/5b19e59be8ac2b261e2f167a" target="_blank" rel="noopener"
+           class="btn bg-[#ff2442] text-white border-0 hover:opacity-90 rounded-ac-md">
+            📕 小红书主页
+        </a>
+        <a href={url('cv')} class="btn btn-outline border-ac-primary text-ac-primary-dark hover:bg-ac-sand hover:border-ac-primary hover:text-ac-primary-dark rounded-ac-md">
+            查看服务详情
+        </a>
+    </div>
+</BaseLayout>

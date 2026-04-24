@@ -1,0 +1,69 @@
+---
+import { url } from "../config";
+const { sideBarActiveItemID } = Astro.props;
+const activeClass = "bg-ac-primary/15 text-ac-primary-dark rounded-ac-md";
+---
+
+<ul class="menu grow shrink menu-md overflow-y-auto">
+    <li>
+        <a
+            class="py-3 text-base rounded-ac-md transition-colors hover:bg-ac-sand"
+            id="home"
+            href={url('')}
+        >
+            <img src={url('nookmiles.png')} alt="" class="w-6 h-6 rounded-ac-sm" />
+            首页
+        </a>
+    </li>
+    <li>
+        <a
+            class="py-3 text-base rounded-ac-md transition-colors hover:bg-ac-sand"
+            id="projects"
+            href={url('projects')}
+        >
+            <img src={url('brush.png')} alt="" class="w-6 h-6 rounded-ac-sm" />
+            作品集
+        </a>
+    </li>
+    <li>
+        <a
+            class="py-3 text-base rounded-ac-md transition-colors hover:bg-ac-sand"
+            id="cv"
+            href={url('cv')}
+        >
+            <img src={url('nookwallet.png')} alt="" class="w-6 h-6 rounded-ac-sm" />
+            设计服务
+        </a>
+    </li>
+    <li>
+        <a
+            class="py-3 text-base rounded-ac-md transition-colors hover:bg-ac-sand"
+            id="blog"
+            href={url('blog/')}
+        >
+            <img src={url('photos.png')} alt="" class="w-6 h-6 rounded-ac-sm" />
+            设计干货
+        </a>
+    </li>
+    <li>
+        <a
+            class="py-3 text-base rounded-ac-md transition-colors hover:bg-ac-sand"
+            id="personal"
+            href={url('personal')}
+        >
+            <img src={url('nookcritters.png')} alt="" class="w-6 h-6 rounded-ac-sm" />
+            关于我
+        </a>
+    </li>
+
+</ul>
+
+<script
+    define:vars={{
+        sideBarActiveItemID: sideBarActiveItemID,
+        activeClass: activeClass,
+    }}
+>
+    const activeItemElem = document.getElementById(sideBarActiveItemID);
+    activeItemElem && activeClass.split(' ').forEach(function(c) { activeItemElem.classList.add(c); });
+</script>

@@ -1,0 +1,101 @@
+---
+import { type ProjectsSchema } from "../content/config";
+import BaseLayout from "./BaseLayout.astro";
+import dayjs from "dayjs";
+import localizedFormat from "dayjs/plugin/localizedFormat";
+
+export interface Props extends ProjectsSchema {}
+
+const {
+    title,
+    description,
+    pubDate,
+    updatedDate,
+    heroImage,
+    badge,
+    tags = [],
+    github,
+    liveUrl,
+} = Astro.props;
+dayjs.extend(localizedFormat);
+const displayDate = dayjs(pubDate).format("ll");
+import { AUTHOR_INITIAL, url } from "../config";
+---
+
+<BaseLayout
+    title={AUTHOR_INITIAL + " | " + title}
+    description={description}
+    image={heroImage}
+    ogType="article"
+    includeSidebar={false}
+>
+    <div class="max-w-3xl mx-auto pb-16">
+        <!-- 返回链接 -->
+        <a href="/projects" class="inline-flex items-center gap-1 text-ac-primary-dark hover:text-ac-primary mb-6 text-sm font-medium no-underline">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            返回作品集
+        </a>
+
+        <!-- 封面图 -->
+        {
+            heroImage && (
+                <div class="rounded-ac-xl overflow-hidden mb-8 w-full aspect-[16/9]">
+                    <img
+                        width="900"
+                        height="506"
+                        src={url(heroImage)}
+                        alt={title}
+                        class="w-full h-full object-cover"
+                    />
+                </div>
+            )
+        }
+
+        <!-- 标题区 -->
+        <div class="mb-2">
+            <h1 class="text-3xl font-bold text-base-content mb-2">{title}</h1>
+            <div class="flex items-center gap-3 flex-wrap">
+                {badge && <span class="badge badge-secondary text-xs">{badge}</span>}
+                {pubDate && <time class="text-sm text-base-content/50">{displayDate}</time>}
+            </div>
+        </div>
+
+        <!-- 标签 -->
+        {
+            tags && tags.length > 0 && (
+                <div class="flex gap-2 flex-wrap mb-6">
+                    {tags.map((tag) => (
+                        <span class="badge badge-outline text-xs border-ac-primary/40 text-ac-primary-dark">
+                            {tag}
+                        </span>
+                    ))}
+                </div>
+            )
+        }
+
+        <!-- 外部链接按钮 -->
+        {
+            (github || liveUrl) && (
+                <div class="flex gap-3 mb-8">
+                    {github && (
+                        <a href={github} target="_blank" class="btn btn-outline btn-sm border-ac-primary text-ac-primary hover:bg-ac-primary hover:border-ac-primary">
+                            查看源码
+                        </a>
+                    )}
+                    {liveUrl && (
+                        <a href={liveUrl} target="_blank" class="btn btn-sm bg-ac-primary text-white border-ac-primary hover:bg-ac-primary-dark hover:border-ac-primary-dark">
+                            预约咨询
+                        </a>
+                    )}
+                </div>
+            )
+        }
+
+        <div class="divider my-2"></div>
+
+        <!-- 正文内容 -->
+        <article class="prose prose-lg max-w-none prose-headings:text-base-content prose-p:text-base-content/80 prose-li:text-base-content/70 prose-strong:text-base-content prose-a:text-ac-primary dark:prose-invert mt-4">
+            <slot />
+        </article>
+    </div>
+</BaseLayout>
